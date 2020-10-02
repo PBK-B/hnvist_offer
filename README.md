@@ -3,7 +3,7 @@
 
 > 开发语言：php，html5，css，shell
 
-> 开发环境：php7，mysql，javascript
+> 开发环境：php7，mysql
 
 ### 数据部署
 > 1，复制 default.env 为 .env 文件，配置数据库相关信息
