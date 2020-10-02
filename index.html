@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="cn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="Shortcut Icon" href="./favicon.ico" type="image/x-icon" />
+    <title>湖南安全技术职业学院2020届录取通知书物流快递单号查询</title>
+    <meta
+      name="keywords"
+      content="湖南,湖南安全,湖南安全技术,职业,湖南安全技术,职业学院,2020届,2020届录取通知书,快递单号查询,湖南安全技术职业学院,2020届录取通知书物流快递单号查询,湖南安全技术职业学院2020届录取通知书,物流快递单号查询"
+    />
+    <meta
+      name="description"
+      content="湖南安全技术职业学院2020届录取通知书物流快递单号在线查询网页，快速查询录取通知书物流！"
+    />
+    <script>
+      const api_url = "./api";
+    </script>
+
+    <style>
+      body {
+        padding: 0;
+        margin: 0;
+      }
+      .view {
+        max-width: 500px;
+        min-height: 90vh;
+        height: 100%;
+        margin: auto;
+      }
+
+      .shade_bg {
+        position: absolute;
+        z-index: -1;
+      }
+
+      .shade {
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        background-image: linear-gradient(#ffffff00, #fff);
+      }
+
+      .logo_view {
+        display: flex;
+        justify-content: center;
+        padding: 70px 0;
+      }
+
+      .logo_img {
+        height: 70px;
+        width: 70px;
+        margin-right: 15px;
+      }
+
+      .logo_title {
+        margin: 0;
+        font-size: 1.4rem;
+        margin-top: 0.4rem;
+      }
+
+      .logo_text {
+        padding: 0;
+        margin: 0;
+        color: #666;
+      }
+
+      .rs-input {
+        width: 60%;
+        color: #575757;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #e5e5ea;
+        -webkit-transition: border-color 0.3s ease-in-out;
+        transition: border-color 0.3s ease-in-out;
+        border-radius: 6px;
+        padding: 7px 11px;
+        font-size: 14px;
+        line-height: 1.42857143;
+      }
+
+      .rs-btn {
+        display: inline-block;
+        margin: 0;
+        font-weight: 400;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+        outline: 0 !important;
+        white-space: nowrap;
+        border: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 8px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 6px;
+      }
+
+      .rs-btn-primary {
+        color: #fff;
+        background-color: #3498ff;
+      }
+
+      .rs-btn-primary:hover {
+        color: #fff;
+        background-color: #1675e0;
+      }
+
+      .rs-message-container {
+        background-color: #e9f5fe;
+        color: #575757;
+        border-radius: 6px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        position: relative;
+        padding: 7px 11px;
+      }
+
+      .rs-message-succeed {
+        background-color: #e9f5fe;
+      }
+
+      .rs-message-error {
+        background-color: #fde9ef;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="view">
+      <div class="shade_bg">
+        <img style="width: 100%" src="./assets/header.png" />
+        <div class="shade"></div>
+      </div>
+      <div>
+        <div class="logo_view">
+          <img class="logo_img" src="./assets/logo.png" />
+          <div>
+            <h1 class="logo_title">湖南安全技术学院</h1>
+            <p class="logo_text">2020届录取通知书快递单号查询</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div style="display: flex; justify-content: center">
+          <input
+            id="e_code"
+            placeholder="请输入身份证号码"
+            name="usercode"
+            type="text"
+            class="rs-input"
+            value=""
+          />
+        </div>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            width: 65%;
+            margin: auto;
+            margin-top: 20px;
+          "
+        >
+          <input
+            id="e_name"
+            style="flex: 1; margin-right: 20px"
+            placeholder="请输入姓名"
+            name="username"
+            type="text"
+            class="rs-input"
+            value=""
+          />
+          <button class="rs-btn rs-btn-primary" onclick="queryInfo()">
+            查询
+          </button>
+        </div>
+      </div>
+      <div style="margin: 20px auto; width: 65%" id="resultView"></div>
+    </div>
+    <div style="justify-content: center; width: 100%">
+      <p style="text-align: center; font-size: 0.8rem; color: #666">
+        Developer @天真 Provide technical support
+      </p>
+      <p style="text-align: center; font-size: 0.8rem; color: #666">
+        Copyright © 2020 湖南安全技术职业学院 All rights reserved
+      </p>
+    </div>
+    <script>
+      function upView(data) {
+        // 数据错误
+        if (!data || !data.code || !data.msg) return;
+        document.getElementById("resultView").innerHTML =
+          data.code === -1
+            ? `<div class="rs-message-container rs-message-error"><p>${data.msg}</p></div>`
+            : `<div class="rs-message-container rs-message-succeed"><p>${data.msg}</p></div>`;
+      }
+
+      function goMail() {
+        document.getElementById("goMail").submit();
+      }
+
+      function queryInfo() {
+        document.getElementById("resultView").innerHTML = "";
+
+        const edit_name = document.getElementById("e_name");
+        const edit_code = document.getElementById("e_code");
+        if (!edit_name || !edit_code) {
+          upView({ code: -1, msg: "错误啦，请稍后重试！" });
+          return;
+        }
+
+        const code = edit_code.value;
+        const name = edit_name.value;
+        if (!name || !code) {
+          upView({ code: -1, msg: "身份证号码和姓名不得为空哦！" });
+          return;
+        }
+        const api = api_url + "?name=" + name + "&code=" + code;
+        fetch(api)
+          .then((res) => res.json())
+          .then(
+            (result) => {
+              upView(result);
+            },
+            (error) => {
+              upView({ code: -1, msg: "服务器错误，请稍后重试！" });
+            }
+          );
+      }
+    </script>
+  </body>
+</html>
